@@ -62,7 +62,7 @@ class CepController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  Cep $cep
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request,$id)
@@ -95,7 +95,7 @@ class CepController extends Controller
             return Cep::where('cep', 'like', '%'.$cep.'%')->get();
             
         }else{
-           return Http::get(url:'https://viacep.com.br/ws/'.$cep.'/json');
+           return Http::get(url:'https://viacep.com.br/ws/'.$cep.'/json')->json();
            
         }
     }
