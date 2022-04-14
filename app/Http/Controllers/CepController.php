@@ -95,7 +95,8 @@ class CepController extends Controller
             return Cep::where('cep', 'like', '%'.$cep.'%')->get();
             
         }else{
-           return Http::get(url:'https://viacep.com.br/ws/'.$cep.'/json')->json();
+            $teste = Http::get(url:'https://viacep.com.br/ws/'.$cep.'/json');
+           return "[".$teste."]";
            
         }
     }
